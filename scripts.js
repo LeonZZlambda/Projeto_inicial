@@ -1,8 +1,23 @@
 var botao = document.getElementById("botao");
 botao.addEventListener("click", alertar, false);
+var saida = document.getElementById("saida-de-dados");
+var email = document.getElementById("email");
+var telefone = document.getElementById("telefone");
+var cep = document.getElementById("cep");
+var rua = document.getElementById("rua");
+var number = document.getElementById("number");
+var complex = document.getElementById("complex");
+var bairro = document.getElementById("bairro");
+var city = document.getElementById("city");
+var state = document.getElementById("state");
 
 function alertar(event){
     if(true){
-        alert("Você clicou no botão!!!" + event);
+        //alert("Você clicou no botão!!!" + "" + event);
+
+        saida.innerText = "Nome: " + nome.value+
+        "\n Email: "+ email.value +"\n Telefone: "+ telefone.value + "\n CEP: " +cep.value+
+        "\n Logradouro: "+rua.value +"\nNúmero: "+number.value+ "\nComplexo: "+ complex.value +
+         "\n Bairro: "+ bairro.value+ "\n Cidade: "+city.value+ "\nEstado: "+state.value
     }
 }
