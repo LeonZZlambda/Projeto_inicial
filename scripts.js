@@ -15,12 +15,22 @@ function alertar(event){
     if(true){
         //alert("Você clicou no botão!!!" + "" + event);
 
-
         const url = `https://viacep.com.br/ws/${cep.value}/json/`;
 
         fetch(url)
-        .then(reposta =>resposta.json())
-        .then(dados=>alert(dados.logradouro))
+        .then(resposta =>resposta.json())
+
+        .then(function (dados){
+            logradouro.value = dados.logradouro;
+            bairro.value = dados.bairro;
+            city.value = dados.localidade;
+            complex.value = dados.complemento;
+            state.value = dados.uf;
+        })
+
+        .catch(function(e){
+            alert(e.message());
+        });
 
         saida.innerText = "Nome: " + nome.value+
         "\n Email: "+ email.value +"\n Telefone: "+ telefone.value + "\n CEP: " +cep.value+
