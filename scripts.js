@@ -4,7 +4,7 @@ var saida = document.getElementById("saida-de-dados");
 var email = document.getElementById("email");
 var telefone = document.getElementById("telefone");
 var cep = document.getElementById("cep");
-var rua = document.getElementById("rua");
+var logradouro = document.getElementById("logradouro");
 var number = document.getElementById("number");
 var complex = document.getElementById("complex");
 var bairro = document.getElementById("bairro");
@@ -15,9 +15,16 @@ function alertar(event){
     if(true){
         //alert("Você clicou no botão!!!" + "" + event);
 
+
+        const url = `https://viacep.com.br/ws/${cep.value}/json/`;
+
+        fetch(url)
+        .then(reposta =>resposta.json())
+        .then(dados=>alert(dados.logradouro))
+
         saida.innerText = "Nome: " + nome.value+
         "\n Email: "+ email.value +"\n Telefone: "+ telefone.value + "\n CEP: " +cep.value+
-        "\n Logradouro: "+rua.value +"\nNúmero: "+number.value+ "\nComplexo: "+ complex.value +
+        "\n Logradouro: "+logradouro.value +"\nNúmero: "+number.value+ "\nComplexo: "+ complex.value +
          "\n Bairro: "+ bairro.value+ "\n Cidade: "+city.value+ "\nEstado: "+state.value
     }
 }
