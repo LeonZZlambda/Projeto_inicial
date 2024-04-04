@@ -15,6 +15,12 @@ function alertar(event){
     if(true){
         //alert("Você clicou no botão!!!" + "" + event);
 
+
+        //validação
+        if(cep.value.length < 8){
+            alert("Entre com um CEP Válido!");
+        }
+
         const url = `https://viacep.com.br/ws/${cep.value}/json/`;
 
         fetch(url)
@@ -28,8 +34,8 @@ function alertar(event){
             state.value = dados.uf;
         })
 
-        .catch(function(e){
-            alert(e.message());
+        .catch(function (error){
+            alert("ação não realizada, Verifique o URL: "+  error.message());
         });
 
         saida.innerText = "Nome: " + nome.value+
